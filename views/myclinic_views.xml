@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- MyClinic Kanban View -->
+        <record model="ir.ui.view" id="myclinic_kanban_view">
+            <field name="name">MyClinic Kanban View</field>
+            <field name="model">myclinic</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="patient"/>
+                    <field name="date"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_image">
+                                    <field name="image"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <div class="oe_kanban_title">
+                                        <field name="name"/>
+                                    </div>
+                                    <div class="oe_kanban_content">
+                                        <field name="patient"/>
+                                    </div>
+                                    <div class="oe_kanban_footer">
+                                        <field name="date"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- MyClinic Form View -->
+        <record model="ir.ui.view" id="myclinic_form_view">
+            <field name="name">MyClinic Form View</field>
+            <field name="model">myclinic</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="patient"/>
+                            <field name="date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- MyClinic Action -->
+        <record model="ir.actions.act_window" id="myclinic_action">
+            <field name="name">MyClinic</field>
+            <field name="res_model">myclinic</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="myclinic_kanban_view"/>
+        </record>
+
+        <!-- MyClinic Menu -->
+        <menuitem id="myclinic_menu" name="MyClinic"/>
+        <menuitem id="myclinic_sub_menu" name="MyClinic" parent="myclinic_menu"/>
+        <menuitem id="myclinic_list_menu" name="MyClinic List" parent="myclinic_sub_menu" action="myclinic_action"/>
+
+    </data>
+</odoo>

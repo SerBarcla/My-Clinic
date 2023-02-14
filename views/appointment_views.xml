@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Appointment form view -->
+        <record model="ir.ui.view" id="view_myclinic_appointment_form">
+            <field name="name">myclinic.appointment.form</field>
+            <field name="model">myclinic.appointment</field>
+            <field name="arch" type="xml">
+                <form string="Appointment" create="false" edit="false">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="patient"/>
+                            <field name="appointment_date"/>
+                            <field name="complaint"/>
+                            <field name="stage"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Appointment tree view -->
+        <record model="ir.ui.view" id="view_myclinic_appointment_tree">
+            <field name="name">myclinic.appointment.tree</field>
+            <field name="model">myclinic.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Appointment">
+                    <field name="name"/>
+                    <field name="patient"/>
+                    <field name="appointment_date"/>
+                    <field name="stage"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Appointment search view -->
+        <record model="ir.ui.view" id="view_myclinic_appointment_search">
+            <field name="name">myclinic.appointment.search</field>
+            <field name="model">myclinic.appointment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="patient"/>
+                    <field name="appointment_date"/>
+                    <field name="stage"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Appointment action -->
+        <record model="ir.actions.act_window" id="action_myclinic_appointment">
+            <field name="name">Appointments</field>
+            <field name="

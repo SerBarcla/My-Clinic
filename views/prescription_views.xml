@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="view_prescription_form" model="ir.ui.view">
+            <field name="name">Prescription Form</field>
+            <field name="model">myclinic.prescription</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="patient_id"/>
+                            <field name="medicine_ids" widget="many2many_tags"/>
+                            <field name="dose_ids" widget="many2many_tags"/>
+                            <field name="quantity_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+ 
+        <record id="action_prescription_form" model="ir.actions.act_window">
+            <field name="name">Prescriptions</field>
+            <field name="res_model">myclinic.prescription</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+ 
+        <menuitem id="main_prescription_menu" name="Prescriptions"/>
+ 
+        <menuitem id="prescription_sub_menu" name="Prescriptions" parent="main_prescription_menu"/>
+ 
+        <menuitem id="menu_prescription_list" name="Prescription List" parent="prescription_sub_menu" action="action_prescription_form"/>
+ 
+    </data>
+</odoo>

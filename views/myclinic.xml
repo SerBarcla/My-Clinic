@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main menu for MyClinic app -->
+    <menuitem id="main_myclinic_menu" name="MyClinic" sequence="10"/>
+
+    <!-- Top level menus -->
+    <menuitem id="myclinic_appointments_menu" name="Appointments" parent="main_myclinic_menu" action="myclinic.action_myclinic_appointment"/>
+    <menuitem id="myclinic_patients_menu" name="Patients" parent="main_myclinic_menu" action="myclinic.action_myclinic_patient"/>
+    <menuitem id="myclinic_prescriptions_menu" name="Prescriptions" parent="main_myclinic_menu" action="myclinic.action_myclinic_prescription"/>
+</odoo>
